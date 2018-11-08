@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
 
@@ -8,9 +9,12 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgZorroAntdModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN }
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
