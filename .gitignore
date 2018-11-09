@@ -36,7 +36,6 @@ yarn.lock
 
 # System Files
 .DS_Store
-.projectile
 Thumbs.db
 package-lock.json
 yarn.lock
