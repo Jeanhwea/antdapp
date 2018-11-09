@@ -5,14 +5,18 @@ import { IconModule } from '@ant-design/icons-angular';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { FormsModule } from '../../node_modules/@angular/forms';
+import { SuperbtnComponent } from './superbtn/superbtn.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SuperbtnComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     NgZorroAntdModule
   ],
   providers: [

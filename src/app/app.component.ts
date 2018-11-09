@@ -1,3 +1,5 @@
+// parent typescript
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +10,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'antdapp';
 
-  constructor() {
+  private superstring: string;
+
+  constructor() { }
+
+  onSuperClicked(event: string): void {
+    console.log(this.superstring);
+    this.superstring = event;
   }
 
 }
