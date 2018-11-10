@@ -10,13 +10,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'antdapp';
 
-  private superstring: string;
+  private superstring: string[];
 
-  constructor() { }
+  constructor() {
+    this.superstring = [];
+  }
 
   onSuperClicked(event: string): void {
-    console.log(this.superstring);
-    this.superstring = event;
+    // this.superstring = [...this.superstring, event];
+    this.superstring.push(event);
+  }
+
+  onClearClicked(): void {
+    this.superstring = [];
   }
 
 }

@@ -2,5 +2,6 @@
 
 <div id="main-div">
   <app-superbtn (superClick)="onSuperClicked($event)"></app-superbtn>
-  <p>{{ superstring }}</p>
+  <app-shadowdisp [content]="superstring"></app-shadowdisp>
+  <button (click)="onClearClicked()">Clear</button>
 </div>

@@ -1,7 +1,4 @@
 #main-div {
-  background: lightgray;
-}
-
-#ctn {
-  background: lightblue;
+  padding: 20px;
+  font-size: 20px;
 }

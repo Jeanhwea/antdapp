@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { SuperbtnComponent } from './superbtn/superbtn.component';
+import { ShadowdispComponent } from './shadowdisp/shadowdisp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SuperbtnComponent
+    SuperbtnComponent,
+    ShadowdispComponent
   ],
   imports: [
     BrowserModule,
