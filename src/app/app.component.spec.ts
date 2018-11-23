@@ -29,25 +29,28 @@ describe('AppComponent', () => {
   it(`should be clicked, and display result`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const superbtn = fixture.debugElement.nativeElement.querySelector('#superbtn');
+    const clrbtn = document.getElementById('clrbtn');
+    const disp = fixture.debugElement.nativeElement.querySelector('#disp');
     superbtn.click();
     fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      const disp = fixture.debugElement.nativeElement.querySelector('#disp');
-      expect(disp.childElementCount).toEqual(1);
-      superbtn.click();
-      superbtn.click();
-      superbtn.click();
-      superbtn.click();
-      fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        const disp = fixture.debugElement.nativeElement.querySelector('#disp');
-        expect(disp.childElementCount).toEqual(5);
-        console.log(disp.children);
-        Array.prototype.forEach.call(disp.children, e => {
-          expect(e.innerText).toContain('2018');
-        });
-      });
+
+    expect(disp.childElementCount).toEqual(1);
+    superbtn.click();
+    superbtn.click();
+    superbtn.click();
+    superbtn.click();
+    fixture.detectChanges();
+
+    expect(disp.childElementCount).toEqual(5);
+    console.log(disp.children);
+    Array.prototype.forEach.call(disp.children, e => {
+      expect(e.innerText).toContain('2018');
     });
+
+    clrbtn.click();
+    fixture.detectChanges();
+    expect(disp.childElementCount).toEqual(0);
+
   }));
 
 });
