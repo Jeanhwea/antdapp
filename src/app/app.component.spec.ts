@@ -1,27 +1,53 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { SuperbtnComponent } from './superbtn/superbtn.component';
+import { ShadowdispComponent } from './shadowdisp/shadowdisp.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SuperbtnComponent,
+        ShadowdispComponent
       ],
     }).compileComponents();
   }));
+
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
   it(`should have as title 'antdapp'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('antdapp');
   }));
-  it('should render title in a h1 tag', async(() => {
+
+  it(`should be clicked, and display result`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
+    const superbtn = fixture.debugElement.nativeElement.querySelector('#superbtn');
+    superbtn.click();
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to antdapp!');
+    fixture.whenStable().then(() => {
+      const disp = fixture.debugElement.nativeElement.querySelector('#disp');
+      expect(disp.childElementCount).toEqual(1);
+      superbtn.click();
+      superbtn.click();
+      superbtn.click();
+      superbtn.click();
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const disp = fixture.debugElement.nativeElement.querySelector('#disp');
+        expect(disp.childElementCount).toEqual(5);
+        console.log(disp.children);
+        Array.prototype.forEach.call(disp.children, e => {
+          expect(e.innerText).toContain('2018');
+        });
+      });
+    });
   }));
+
 });
